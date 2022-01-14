@@ -1,0 +1,15 @@
+#!/usr/bin/env zsh
+set -euo pipefail
+
+here="$(dirname $(realpath $0))"
+there="../../getsentry/craft"
+version="$(scripts/new-version)"
+
+cd "$there"
+yarn build
+
+cd "$here"
+echo "Version $version ..."
+craft prepare $version
+sleep 5  # give action time to kick off to avoid "no revision" failure
+craft publish $version --no-input

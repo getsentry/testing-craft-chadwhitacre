@@ -1,0 +1,2 @@
+#!/usr/bin/env bash
+echo $(cat version) | awk -F. '{$NF = $NF + 1;} 1' | sed 's/ /./g'
