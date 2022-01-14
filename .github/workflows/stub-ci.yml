@@ -11,6 +11,6 @@ jobs:
       - name: Upload
         uses: actions/upload-artifact@v2
         with:
-          name: tarball
+          name: ${{ github.sha }}
           path: testing-craft.tbz
           retention-days: 1
