@@ -1,0 +1,7 @@
+name: Stub CI
+on: [push]
+jobs:
+  stub-ci:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo 'PASS'
