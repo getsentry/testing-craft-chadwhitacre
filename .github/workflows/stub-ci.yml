@@ -4,4 +4,13 @@ jobs:
   stub-ci:
     runs-on: ubuntu-latest
     steps:
-      - run: echo 'PASS'
+      - name: Test
+        run: echo 'PASS'
+      - name: Package
+        run: head -c 200000 < /dev/urandom > testing-craft.tbz
+      - name: Upload
+        uses: actions/upload-artifact@v2
+        with:
+          name: tarball
+          path: testing-craft.tbz
+          retention-days: 1
